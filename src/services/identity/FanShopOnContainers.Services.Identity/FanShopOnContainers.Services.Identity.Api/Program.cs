@@ -1,3 +1,4 @@
+using FanShopOnContainers.Services.Identity.Application;
 using FanShopOnContainers.Services.Identity.Infra.AuthIdentity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services
+            .AddApplication()
             .AddInfraAuthIdentity(builder.Configuration);
 
 var app = builder.Build();
