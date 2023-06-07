@@ -1,3 +1,4 @@
+using FanShopOnContainers.Services.Identity.Application.Users;
 using FanShopOnContainers.Services.Identity.Infra.AuthIdentity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -13,8 +14,8 @@ public static class SetupIoC
             {
                 options.UseSqlServer(config.GetConnectionString("IdentityConn"));
             });
-            
-            
+
+            services.AddTransient<IUserRepository, UserRepository>();
             return services;
         }
 }
